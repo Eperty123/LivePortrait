@@ -19,3 +19,6 @@ pretrained_weights/docs
 animations/*
 tmp/*
 .vscode/launch.json
+
+# Python virtual environment
+venv/*
