@@ -59,15 +59,19 @@ conda activate LivePortrait
 pip install -r requirements.txt
 ```
 
+**Note:** make sure your system has [FFmpeg](https://ffmpeg.org/) installed!
+
 ### 2. Download pretrained weights
 
-Download the pretrained weights from HuggingFace:
+The easiest way to download the pretrained weights is from HuggingFace:
 ```bash
 # you may need to run `git lfs install` first
 git clone https://huggingface.co/KwaiVGI/liveportrait pretrained_weights
 ```
 
-Or, download all pretrained weights from [Google Drive](https://drive.google.com/drive/folders/1UtKgzKjFAOmZkhNK-OYT0caJ_w2XAnib) or [Baidu Yun](https://pan.baidu.com/s/1MGctWmNla_vZxDbEp2Dtzw?pwd=z5cn). We have packed all weights in one directory 😊. Unzip and place them in `./pretrained_weights` ensuring the directory structure is as follows:
+Alternatively, you can download all pretrained weights from [Google Drive](https://drive.google.com/drive/folders/1UtKgzKjFAOmZkhNK-OYT0caJ_w2XAnib) or [Baidu Yun](https://pan.baidu.com/s/1MGctWmNla_vZxDbEp2Dtzw?pwd=z5cn). Unzip and place them in `./pretrained_weights`.
+
+Ensuring the directory structure is as follows, or contains:
 ```text
 pretrained_weights
 ├── insightface
@@ -126,8 +130,8 @@ python inference.py -s assets/examples/source/s9.jpg -d assets/examples/driving/
 
 If you find the results of auto-cropping is not well, you can modify the `--scale_crop_video`, `--vy_ratio_crop_video` options to adjust the scale and offset, or do it manually.
 
-#### Template making
-You can also use the `.pkl` file auto-generated to speed up the inference, and **protect privacy**, such as:
+#### Motion template making
+You can also use the auto-generated motion template files ending with `.pkl` to speed up inference, and **protect privacy**, such as:
 ```bash
 python inference.py -s assets/examples/source/s9.jpg -d assets/examples/driving/d5.pkl
 ```
@@ -136,7 +140,7 @@ python inference.py -s assets/examples/source/s9.jpg -d assets/examples/driving/
 
 ### 4. Gradio interface 🤗
 
-We also provide a Gradio interface for a better experience, just run by:
+We also provide a Gradio <a href='https://github.com/gradio-app/gradio'><img src='https://img.shields.io/github/stars/gradio-app/gradio'></a> interface for a better experience, just run by:
 
 ```bash
 python app.py
